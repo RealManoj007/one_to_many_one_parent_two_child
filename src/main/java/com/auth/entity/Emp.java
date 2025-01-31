@@ -3,6 +3,8 @@ package com.auth.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Emp {
     @Id
@@ -11,13 +13,19 @@ public class Emp {
 
     private String empName;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "emp",  cascade = CascadeType.ALL)
-//    @JoinColumn(referencedColumnName = "mobid")
+    @OneToOne(mappedBy = "emp")
     private Mobile mobile;
 
-    @OneToOne
-    Pen pen;
+    @OneToMany(mappedBy="emp", cascade = CascadeType.ALL)
+    private List<Address> address;
+
+    public List<Address> getAddress() {
+        return address;
+    }
+
+    public void setAddress(List<Address> address) {
+        this.address = address;
+    }
 
     public String getEmpName() {
         return empName;
@@ -26,20 +34,4 @@ public class Emp {
     public void setEmpName(String empName) {
         this.empName = empName;
     }
-
-    public Pen getPen() {
-        return pen;
-    }
-
-    public void setPen(Pen pen) {
-        this.pen = pen;
-    }
-
-//        public Mobile getMobile() {
-//        return mobile;
-//    }
-//
-//    public void setMobile(Mobile mobile) {
-//        this.mobile = mobile;
-//    }
 }

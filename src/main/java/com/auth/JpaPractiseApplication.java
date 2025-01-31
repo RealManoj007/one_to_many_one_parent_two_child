@@ -2,14 +2,16 @@ package com.auth;
 
 import com.auth.entity.Emp;
 import com.auth.entity.Mobile;
-import com.auth.entity.Pen;
+import com.auth.entity.Address;
+import com.auth.repo.AddressRepo;
 import com.auth.repo.EmpRepo;
 import com.auth.repo.MobileRepo;
-import com.auth.repo.PenRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.List;
 
 @SpringBootApplication
 public class JpaPractiseApplication  implements CommandLineRunner {
@@ -21,7 +23,7 @@ public class JpaPractiseApplication  implements CommandLineRunner {
 	MobileRepo mobileRepo;
 
 	@Autowired
-	PenRepo penRepo;
+	AddressRepo addressRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(JpaPractiseApplication.class, args);
@@ -29,25 +31,30 @@ public class JpaPractiseApplication  implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Pen pen=new Pen();
-		pen.setPenName("QA");
-
 
 		Emp emp=new Emp();
-		emp.setEmpName("CQA");
-		emp.setPen(pen);
+		emp.setEmpName("Rahul");
+
+//		Emp emp1=new Emp();
+//		emp1.setEmpName("Sanjay");
 
 		Mobile mob=new Mobile();
-		mob.setMobileName("XWE");
-		mob.setPen(pen);
+		mob.setMobileName("Samsung");
 		mob.setEmp(emp);
 
-//		pen.setPenEmp(emp);
-//		pen.setPenMob(mob);
-		penRepo.save(pen);
-//		empRepo.save(emp);
-//		mobileRepo.save(mob);
+		Address add1 =new Address();
+		add1.setAddress("Pune");
+		add1.setEmp(emp);
 
+		Address add2 =new Address();
+		add2.setAddress("Chandigarh");
+		add2.setEmp(emp);
+
+		emp.setAddress(List.of(add1,add2));
+
+		empRepo.save(emp);
+		mobileRepo.save(mob);
+//		mobileRepo.save(mob);
 
 	}
 }

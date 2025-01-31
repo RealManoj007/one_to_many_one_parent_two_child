@@ -2,10 +2,10 @@ package com.auth.rest;
 
 import com.auth.entity.Emp;
 import com.auth.entity.Mobile;
-import com.auth.entity.Pen;
+import com.auth.entity.Address;
+import com.auth.repo.AddressRepo;
 import com.auth.repo.EmpRepo;
 import com.auth.repo.MobileRepo;
-import com.auth.repo.PenRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,10 +21,10 @@ public class CheckController {
     MobileRepo mobileRepo;
 
     @Autowired
-    PenRepo penRepo;
+    AddressRepo penRepo;
 
     @PostMapping("/pen")
-    public Object savePen(@RequestBody Pen pen
+    public Object savePen(@RequestBody Address pen
             , @RequestBody Emp emp
             , @RequestBody Mobile mob
     ) {

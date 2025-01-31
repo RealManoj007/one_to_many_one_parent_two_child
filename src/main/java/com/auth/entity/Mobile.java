@@ -14,25 +14,6 @@ public class Mobile {
     @OneToOne
     private Emp emp;
 
-    @OneToOne
-    Pen pen;
-
-    public Emp getEmp() {
-        return emp;
-    }
-
-    public void setEmp(Emp emp) {
-        this.emp = emp;
-    }
-
-    public int getId() {
-        return mobid;
-    }
-
-    public void setId(int id) {
-        this.mobid = id;
-    }
-
     public String getMobileName() {
         return mobileName;
     }
@@ -41,11 +22,11 @@ public class Mobile {
         this.mobileName = mobileName;
     }
 
-    public Pen getPen() {
-        return pen;
+    public Emp getEmp() {
+        return emp;
     }
 
-    public void setPen(Pen pen) {
-        this.pen = pen;
+    public void setEmp(Emp emp) {
+        this.emp = emp;
     }
 }

@@ -30,23 +30,23 @@ public class JpaPractiseApplication  implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Pen pen=new Pen();
-		pen.setPenName("Manoj");
+		pen.setPenName("QA");
 
 
 		Emp emp=new Emp();
-		emp.setEmpName("Sanjay");
+		emp.setEmpName("CQA");
 		emp.setPen(pen);
 
 		Mobile mob=new Mobile();
-		mob.setMobileName("Xiaomi");
+		mob.setMobileName("XWE");
 		mob.setPen(pen);
 		mob.setEmp(emp);
 
 //		pen.setPenEmp(emp);
 //		pen.setPenMob(mob);
 		penRepo.save(pen);
-		empRepo.save(emp);
-		mobileRepo.save(mob);
+//		empRepo.save(emp);
+//		mobileRepo.save(mob);
 
 
 	}

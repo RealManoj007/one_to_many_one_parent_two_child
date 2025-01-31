@@ -1,5 +1,6 @@
 package com.auth.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +11,7 @@ public class Emp {
 
     private String empName;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "emp",  cascade = CascadeType.ALL)
 //    @JoinColumn(referencedColumnName = "mobid")
     private Mobile mobile;

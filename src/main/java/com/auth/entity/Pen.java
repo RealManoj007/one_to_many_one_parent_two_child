@@ -1,5 +1,6 @@
 package com.auth.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,9 +12,11 @@ public class Pen {
 
     private String penName;
 
-    @OneToOne(mappedBy = "pen", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToOne(mappedBy = "pen", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     Mobile penMob;
-    @OneToOne(  mappedBy = "pen", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToOne(  mappedBy = "pen", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     Emp penEmp;
 
     public String getPenName() {

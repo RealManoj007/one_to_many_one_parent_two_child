@@ -13,7 +13,11 @@ public class Address {
     private String address;
 
     @ManyToOne
+    @JoinColumn(name = "emp_id")
     private Emp emp;
+
+    public Address() {
+    }
 
     public Emp getEmp() {
         return emp;

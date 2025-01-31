@@ -32,29 +32,48 @@ public class JpaPractiseApplication  implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Emp emp=new Emp();
-		emp.setEmpName("Rahul");
+		/*Emp emp = new Emp();
+		emp.setEmpName("Manoj");
 
-//		Emp emp1=new Emp();
-//		emp1.setEmpName("Sanjay");
+		Address address = new Address();
+		address.setAddress("Pune");
 
-		Mobile mob=new Mobile();
-		mob.setMobileName("Samsung");
-		mob.setEmp(emp);
+		Address address1 = new Address();
+		address1.setAddress("Panhkula");
 
-		Address add1 =new Address();
-		add1.setAddress("Pune");
-		add1.setEmp(emp);
+		Address address2 = new Address();
+		address2.setAddress("kalka");
 
-		Address add2 =new Address();
-		add2.setAddress("Chandigarh");
-		add2.setEmp(emp);
+		Address address3 = new Address();
+		address3.setAddress("pinjore");
 
-		emp.setAddress(List.of(add1,add2));
 
-		empRepo.save(emp);
-		mobileRepo.save(mob);
-//		mobileRepo.save(mob);
+		Mobile mobile = new Mobile();
+		mobile.setMobileName("Xiaomi");
+
+		Mobile mobile1 = new Mobile();
+		mobile1.setMobileName("Realme");
+
+		Mobile mobile2 = new Mobile();
+		mobile2.setMobileName("OnePlus");
+
+		Mobile mobile3 = new Mobile();
+		mobile3.setMobileName("XDTDTC");
+
+		address.setEmp(emp);
+		address1.setEmp(emp);
+		address2.setEmp(emp);
+		address3.setEmp(emp);
+
+		mobile.setEmp(emp);
+		mobile1.setEmp(emp);
+		mobile2.setEmp(emp);
+		mobile3.setEmp(emp);
+
+		emp.setMobiles(List.of(mobile, mobile1, mobile2, mobile3));
+		emp.setAddress(List.of(address, address1, address2, address3));
+
+		empRepo.save(emp);*/
 
 	}
 }

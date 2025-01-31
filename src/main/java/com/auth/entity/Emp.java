@@ -13,11 +13,18 @@ public class Emp {
 
     private String empName;
 
-    @OneToOne(mappedBy = "emp")
-    private Mobile mobile;
-
     @OneToMany(mappedBy="emp", cascade = CascadeType.ALL)
     private List<Address> address;
+
+    @OneToMany(mappedBy="emp", cascade = CascadeType.ALL)
+    private List<Mobile> mobiles;
+
+    public Emp(){}
+
+    public Emp(List<Address> address, List<Mobile> mobiles) {
+        this.address = address;
+        this.mobiles = mobiles;
+    }
 
     public List<Address> getAddress() {
         return address;
@@ -33,5 +40,13 @@ public class Emp {
 
     public void setEmpName(String empName) {
         this.empName = empName;
+    }
+
+    public List<Mobile> getMobiles() {
+        return mobiles;
+    }
+
+    public void setMobiles(List<Mobile> mobiles) {
+        this.mobiles = mobiles;
     }
 }

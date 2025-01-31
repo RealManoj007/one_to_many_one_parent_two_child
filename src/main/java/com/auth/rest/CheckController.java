@@ -23,16 +23,15 @@ public class CheckController {
     @Autowired
     AddressRepo penRepo;
 
-    @PostMapping("/pen")
-    public Object savePen(@RequestBody Address pen
-            , @RequestBody Emp emp
-            , @RequestBody Mobile mob
-    ) {
-
-        penRepo.save(pen);
-        empRepo.save(emp);
-        mobileRepo.save(mob);
-        return "saved";
+    @PostMapping("/emp")
+    public Emp savePen(@RequestBody Emp emp) {
+        for (Mobile mobile : emp.getMobiles()) {
+            mobile.setEmp(emp);
+        }
+        for (Address address : emp.getAddress()) {
+            address.setEmp(emp);
+        }
+        return empRepo.save(emp);
     }
 
 }

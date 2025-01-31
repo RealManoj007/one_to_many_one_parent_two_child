@@ -11,8 +11,12 @@ public class Mobile {
 
     private String mobileName;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "emp_id")
     private Emp emp;
+
+    public Mobile() {
+    }
 
     public String getMobileName() {
         return mobileName;
